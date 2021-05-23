@@ -1,0 +1,17 @@
+
+    <mat-carousel 
+timings="250ms ease-in"
+[autoplay]="true"
+interval="3000"
+maxWidth="auto"
+proportion="30"
+slides="5"
+[loop]="true">
+  <mat-carousel-slide *ngFor="let img of slides">
+   <div class="card">
+     <div class="card-body">
+      <img style="width: 100%;" src="{{ img }}" alt="">
+     </div>
+   </div>
+  </mat-carousel-slide>
+</mat-carousel>

@@ -1,0 +1,48 @@
+.card{
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 1px 0 .2rem rgba(109, 107, 107, 0.712);
+    height: 23rem;
+
+    &:hover &__text{
+        bottom: 0;
+    }
+    &:hover &__img{
+        transform: scale(1.03);
+    }
+
+    &__img{
+        transition: .3s all ease;
+        height: 100%;
+    }
+
+   &__text{
+       position: absolute;
+       bottom: -3rem;
+       width: 100%;
+       transition: .4s all ease;
+       line-height: .5;
+       background-color: brown;
+       color: #fff;
+       padding-top: .5rem;
+       &--main{
+           font-size: 2rem;
+       }
+       &--temp{
+           text-decoration: line-through;
+       }
+
+       &--sub{
+           color: orange;
+           border-bottom: orange 2px solid;
+           display: inline-block;
+
+           &:hover{
+               letter-spacing: 2px;
+               cursor: pointer;
+               transition: .3s ease all;
+           }
+       }
+   }
+}

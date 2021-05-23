@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-7" *ngIf="address">
+         <h1>shipping address</h1>
+            <div class="shipping">
+                <div>{{ address.street }}</div>
+                <span>{{ address.city }}, {{ address.state }} {{ address.zip }} 
+                </span>
+            </div>
+            <hr>
+            <h1> Payment method</h1>
+            <div>
+                ...
+            </div>
+        </div>
+        <div class="placeorder">
+            <h3>Order Summary</h3>
+            <button class="btn btn-success">Place your order</button>
+        </div>
+    </div>
+</div>

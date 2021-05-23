@@ -1,0 +1,80 @@
+<div class="row text-center mt-5 mx-1">
+    <div class="col-sm-12 col-md-6 offset-md-3">
+   <form [formGroup]="formData" (ngSubmit)="onSignup()">
+       <p class="text-danger">*Default shipping address is assigned to all new users.</p>
+    <div class="form-group">
+        <input formControlName="name" class="form-control" placeholder="Name" >
+        <ng-container *ngIf="formData.get('name').errors && formData.get('name').touched">
+            <div class="errors" *ngIf="formData.get('name').errors.required">
+                <div class="alert alert-danger mt-1" role="alert">
+                    This field is required.
+                </div>
+            </div>
+            <div class="errors" *ngIf="formData.get('name').errors.maxlength">
+                <div class="alert alert-danger mt-1" role="alert">
+                    Name is too long. Only 6 characters allowed.
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="form-group">
+        <input  formControlName="email" class="form-control" placeholder="Email">
+        <ng-container *ngIf="formData.get('email').errors && formData.get('email').touched">
+            <div class="errors" *ngIf="formData.get('email').errors.required">
+                <div class="alert alert-danger mt-1" role="alert">
+                    This field is required.
+                </div>
+            </div>
+            <div class="errors" *ngIf="formData.get('email').errors.email">
+                <div class="alert alert-danger mt-1" role="alert">
+                    Invalid Email Address.
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="form-group">
+        <input formControlName="password" class="form-control" placeholder="Password" maxlength="6">
+        <ng-container *ngIf="formData.get('password').errors && formData.get('password').touched">
+            <div class="errors" *ngIf="formData.get('password').errors.required">
+                <div class="alert alert-danger mt-1" role="alert">
+                    This field is required.
+                </div>
+            </div>
+            <div class="errors" *ngIf="formData.get('password').errors.minlength">
+                <div class="alert alert-danger mt-1" role="alert">
+                    Password is too short. It must contain at least 6 characters.
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="form-group">
+        <input formControlName="passwordConfirm" class="form-control" placeholder="Confirm Password" maxlength="6">
+        <ng-container *ngIf="formData.get('passwordConfirm').errors && formData.get('passwordConfirm').touched">
+            <div class="errors" *ngIf="formData.get('passwordConfirm').errors.required">
+                <div class="alert alert-danger mt-1" role="alert">
+                    This field is required.
+                </div>
+            </div>
+            <div class="errors" *ngIf="formData.get('passwordConfirm').errors.minlength">
+                <div class="alert alert-danger mt-1" role="alert">
+                    Password is too short. It must contain at least 6 characters.
+                </div>
+            </div>            
+        </ng-container>
+        
+        <ng-container *ngIf="formData.errors?.notMatch">
+            <div class="alert alert-danger mt-1" role="alert">
+                Password must match.
+            </div>
+    </ng-container>
+    <div class="alert alert-danger mt-1" role="alert" *ngIf="userExist">
+        The email address is already in use by another account.
+    </div>
+    </div>
+    <button class="btn btn-info mb-5" [disabled]="!formData.valid">Sign Up!</button>
+
+</form>
+Already have an account? <a routerLink="/signin">Sign in Here!</a> 
+</div>
+</div>
+

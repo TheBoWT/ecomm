@@ -1,0 +1,20 @@
+
+.img-box{
+    width: 5rem;
+    order: -1;
+    @media screen and (max-width: 766px) {
+        display: flex;
+        justify-content: center;
+    }
+}
+.sm-imgs{
+    width: 7rem;
+    border: thin black solid;
+    margin: 3px;
+    padding: 5px;
+
+    &:hover{
+        cursor: pointer;
+    }
+    
+}

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "cart-d129d": {
+      "hosting": {
+        "ecomm": [
+          "cart-d129d"
+        ]
+      }
+    }
+  }
+}

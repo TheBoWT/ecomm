@@ -1,0 +1,46 @@
+<div class="empty" *ngIf="items.length < 1">
+    <div class="info">
+        <h4>You don't have any items in your cart.</h4>
+    <div class="btn-group">
+        <a routerLink="" class="btn btn-success">Start Shopping</a>
+    </div>
+    </div>
+</div>
+
+
+<ng-container *ngIf="items.length > 0">
+    <div *ngFor="let item of items; let i = index" class="cart">
+            <i class="fa fa-trash text-danger" aria-hidden="true"
+            (click)="onDelete(i)"></i>
+                <div class="imageBox">
+                    <img src="assets/{{ item.imgUrls[0] }}" alt="" class="img">
+                </div>
+                <div class="desc">
+                    {{ item.desc }}
+                </div>
+                <div class="price">
+                    {{ item.price | currency }}
+                </div>
+                <div class="qty">
+                    <input type="number" min="1"  class="qty" [value]="item.qty"
+                    (blur)="validateInput($event, i)">
+                </div>
+                <div class="subtotal">
+                    {{ item.price * item.qty |currency }}
+             
+                </div>
+    </div>
+            
+
+        <div class="checkout">
+            <div>Subtotal</div>
+            <b>$0</b>
+            <div>Shipping</div>
+            <b>$0</b>
+            <div>Total</div>
+            <b>{{ total | currency }}</b>
+        
+            <button class="btn btn-success" (click)="onCheckout()">Check Out</button>
+        </div>
+        
+</ng-container>

@@ -1,0 +1,33 @@
+<nav class="nav bg-light">
+  <a class="nav-item nav-link" routerLink="">
+    <i class="fa fa-home" aria-hidden="true"></i></a>
+    
+  <a class="nav-item nav-link mr-auto" routerLink="products">
+    Products (Men)</a>
+
+    <a *ngIf="!user" class="nav-item nav-link" routerLink="signin">
+      <i class="fa fa-user" aria-hidden="true"></i>
+    </a>
+  <a class="nav-item nav-link" routerLink="cart">
+    <i class="fa fa-cart-arrow-down cart" aria-hidden="true">
+      <span class="cart-item">{{ cartItem }}</span>
+  </i>
+  </a>
+
+  <ng-container *ngIf="user">      
+    <div [matMenuTriggerFor]="afterMenu" class="profile">
+      <img class="profile__photo" src="assets/profile.png"> 
+      <br>
+      <span>{{ userName }}</span>
+    </div>
+    <mat-menu #afterMenu="matMenu" xPosition="after">
+      <button mat-menu-item (click)="logout()" style="display: flex; align-items: center;">
+          <span>Logout</span>
+        <span class="material-icons">logout</span>
+      </button>
+    </mat-menu> 
+  </ng-container>
+</nav>
+
+        
+<div class="sales">Save up to 30%</div>

@@ -1,0 +1,62 @@
+:host{
+    background-color:  yellow ;
+    width: 100vh;
+}
+
+.empty{
+    min-height: 70vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+
+    .btn-group{
+        display: flex;
+        justify-content: space-between;
+
+        &>*{
+            width: 100%;
+        }
+    }
+}
+
+.cart{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    &:not(:last-child){border-bottom: inset 2px oldlace;}
+
+    &>*{
+        margin: 1rem;
+    }
+}
+.imageBox{
+    flex: 0 0 6rem;
+
+    .img{
+        width: 100%;
+    }
+}
+
+.desc{
+    flex: 1;
+}
+.qty{
+    width: 3rem;
+    text-align: center;
+}
+
+.checkout{
+    flex-basis:  100%;
+    display: grid;
+    justify-content: end;
+    grid-template-columns: repeat(2, 8rem);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+b{
+    justify-self: end;
+}
+.btn{
+    grid-column: 1 / -1;
+}
