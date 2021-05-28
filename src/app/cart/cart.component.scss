@@ -40,10 +40,18 @@
 
 .desc{
     flex: 1;
+    @media screen and (max-width:768px) {
+        display: none;
+    }
 }
 .qty{
     width: 3rem;
     text-align: center;
+}
+.subtotal{
+    @media screen and (max-width:403px) {
+        display: none;
+    }
 }
 
 .checkout{
@@ -53,6 +61,15 @@
     grid-template-columns: repeat(2, 8rem);
     gap: 1rem;
     margin-top: 1rem;
+    padding: .5rem;
+
+    @media screen and (max-width:581px) {
+        padding: 1rem;
+    }
+
+    @media screen and (max-width:403px) {
+        justify-content: center;
+    }
 }
 b{
     justify-self: end;

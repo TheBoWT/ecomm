@@ -5,6 +5,10 @@
     box-shadow: 1px 0 .2rem rgba(109, 107, 107, 0.712);
     height: 23rem;
 
+    @media screen and (max-width:768px) {
+        margin-bottom: .5rem;
+    }
+
     &:hover &__text{
         bottom: 0;
     }

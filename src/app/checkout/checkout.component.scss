@@ -1,6 +1,17 @@
+.info{
+    flex: 1;
+}
+
 .placeorder{
-    border: silver thin solid;
+    text-align: center;
+    border-left: silver thin solid;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media screen and (max-width:768px) {
+        border: silver thin solid;
+        margin-top: 1rem;
+    }
 }
+
