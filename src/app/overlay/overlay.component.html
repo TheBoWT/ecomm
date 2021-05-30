@@ -1,0 +1,19 @@
+ <div class="container" (window:resize)="onClose($event)">
+    <span class="close" (click)="onClose(null)">&times;</span>
+    <div class="example-button-container">
+      <button color="primary" mat-fab [disabled]="currentImg == 0"
+        (click)="prevImg()">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+    </div>
+
+    <img src="assets/{{imgUrls[currentImg]}}" class="img">
+    
+    <div class="example-button-container">
+      <button color="primary" mat-fab [disabled]="imgUrls.length == this.currentImg + 1" 
+      (click)="nextImg()">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+
+</div>

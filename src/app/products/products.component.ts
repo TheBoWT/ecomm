@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
 import { ProductService } from '../shared/product.service';
 
 @Component({
@@ -12,6 +11,7 @@ export class ProductsComponent implements OnInit {
   constructor(private productService: ProductService) {
     
    }
+
 
   ngOnInit(): void {
     

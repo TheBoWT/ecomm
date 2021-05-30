@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import {  map } from 'rxjs/operators';
-import { AuthService } from '../shared/auth.service';
+import { OverlayComponent } from '../overlay/overlay.component';
 import { CartService } from '../shared/cart.service';
 import { ProductService } from '../shared/product.service';
 
@@ -11,6 +12,7 @@ import { ProductService } from '../shared/product.service';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
+
 product;
 user;
 currentImg = 0;
@@ -19,13 +21,9 @@ currentImg = 0;
     private productService: ProductService, 
     private route: ActivatedRoute,
     private cartService: CartService,
-    private authService: AuthService) { }
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
-  /*    this.authService.afAuth.user.subscribe(user=>{
-      user = user;   
-    });  */
-
     const id = this.route.snapshot.params['id'];
     this.productService.getProduct(id);
     
@@ -41,6 +39,18 @@ currentImg = 0;
   addToCart(product){    
     this.cartService.addItem(product);
   }
+
+
+  onOverlay(data, i){
+    if(window.innerWidth < 600) return;
+      this.dialog.open(OverlayComponent, { 
+        width: '100%',
+        height:'100%',
+        
+        data: { imgUrl: data, index: i }
+    });
+
+   }
 
 
 }
